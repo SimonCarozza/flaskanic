@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titanic Survival Prediction</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/apps.css') }}">
+</head>
+<body>
+    <div class="container">
+        <br>
+        <h1>Predict Titanic Survivors!</h1>
+        <br>
+        <!-- inheritance -->
+        {% block content %}
+        {% endblock %}
+        <!-- end inheritance -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+{% if df_preds is not none  %}
+    <div class="row">
+        <div class="col" align="center">
+            <h2>All Predictions in a Data Table</h2>
+            <br>
+            <p>Survived=0: dead | Survived=1: survived</p>
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div id="predictions" class="col-sm-auto" align="left">
+            {{ df_preds | safe}}
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col" align="center">
+        <a href="{{ url_for('table.full_predict') }}">
+            <button type="button" class="btn btn-success">All Predictions</button>
+        </a>
+    </div>
+</div>
+<br>
+
+{% endblock %}
