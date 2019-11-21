@@ -36,7 +36,7 @@ else:
     estimator = jl.load(ml_model_path)
 
 print(estimator)
-predictions = estimator.predict(enc_df_test)
+# predictions = estimator.predict(enc_df_test)
 
 
 ###
