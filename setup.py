@@ -15,7 +15,7 @@ if sys.version_info < req_version:
              sys.version.split()[0] + " detected, exiting.")
 
 setup(
-    name="autolrn",
+    name="flaskanic",
     version="0.1",
     author="Simon Carozza",
     author_email="simoncarozza@gmail.com",
