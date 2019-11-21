@@ -34,6 +34,7 @@ setup(
         "Operating System :: Other OS"
     ],
     install_requires=[
+        "autolrn",
         "scikit-learn>=0.20.1",
         "pandas",
         "tensorflow",
