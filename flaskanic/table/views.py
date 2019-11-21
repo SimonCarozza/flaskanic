@@ -63,7 +63,7 @@ df_preds = predictions_df(df_test, enc_df_test, estimator)
 
 @table_page.route('/table', methods=['POST', 'GET'])
 def full_predict():
-    # df_preds = predictions_df(df_test, enc_df_test, estimator)
+    df_preds = predictions_df(df_test, enc_df_test, estimator)
     classes = ['table']
     df_table = df_preds.to_html(
         header="true", border=0, index=False, justify='left', 
