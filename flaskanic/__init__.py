@@ -2,7 +2,7 @@ from pandas import read_csv
 from pathlib import Path
 from autolrn.encoding import labelenc as lc
 import os
-from flask import Flask, render_template, Blueprint
+from flask import Flask, Blueprint, render_template
 
 app = Flask(__name__)
 
@@ -24,25 +24,15 @@ with app.app_context():
 	           'Ticket': 'category', 'Cabin': 'category',
 	           'Embarked': 'category'})
 
-	# print("Dropping 'Cabin' column -- too many missing values")
-	df_test.drop(['Cabin'], axis=1, inplace=True)
-
-	# replace missing valus in 'Age', 'Embarked'
-	if df_test.isnull().values.any():
-	    print("Null values here... replacing them.")
-	    df_test.fillna(method='pad', inplace=True)
-	    df_test.fillna(method='bfill', inplace=True)
-
-	enc_df_test = lc.dummy_encode(df_test)
+	from flaskanic.views import preprocess_model, home_page
+	enc_df_test = preprocess_model(df_test)
 
 	os.makedirs('./flaskanic/tmp', exist_ok=True)
-	if not Path("./flaskanic/tmp/titanic_df"):
+	if not Path("./flaskanic/tmp/titanic_df").is_file():
 	    df_test.to_feather("./flaskanic/tmp/titanic_df")
-	if not Path("./flaskanic/tmp/enc_titanic_df"):
+	if not Path("./flaskanic/tmp/enc_titanic_df").is_file():
 		enc_df_test.to_feather("./flaskanic/tmp/enc_titanic_df")
 
-	# import blueprints
-	from flaskanic.views import home_page
 	from flaskanic.table.views import table_page
 	from flaskanic.api.views import predict_page
 
